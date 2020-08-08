@@ -1,5 +1,4 @@
-package com.es.camp.datastructure.proxy.v07;
-
+package com.es.camp.datastructure.proxy.v08;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -21,33 +20,44 @@ public class Tank implements Moveable {
         }
     }
 
+
     public static void main(String[] args) {
         Tank tank = new Tank();
 
-        Proxy.newProxyInstance(Tank.class.getClassLoader(), new Class[]{Moveable.class},new LogHandler(tank));
-    }
+        Moveable m = (Moveable)Proxy.newProxyInstance(Tank.class.getClassLoader(),
+                new Class[]{Moveable.class},
+                new TimeProxy(tank));
 
+        m.move();
+    }
 
 }
 
+class TimeProxy implements InvocationHandler {
 
-class LogHandler implements InvocationHandler {
+    private Moveable moveable;
 
-    Tank tank;
+    public TimeProxy(Moveable moveable) {
+        this.moveable = moveable;
+    }
 
-    public LogHandler(Tank tank) {
-        this.tank = tank;
+    public void before() {
+        System.out.println("method start...");
+    }
+
+    public void after() {
+        System.out.println("method end...");
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("Method " + method.getName() + " start");
-        Object o = method.invoke(tank, args);
-        System.out.println("Method " + method.getName() + " end");
+        before();
+        Object o = method.invoke(moveable, args);
+        after();
+
         return o;
     }
 }
-
 
 interface Moveable {
     void move();
