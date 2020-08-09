@@ -1,4 +1,18 @@
 package com.es.camp.datastructure.state.v2;
 
-public class MMSadState {
+public class MMSadState extends MMState {
+    @Override
+    void smile() {
+
+    }
+
+    @Override
+    void cry() {
+
+    }
+
+    @Override
+    void sad() {
+
+    }
 }
