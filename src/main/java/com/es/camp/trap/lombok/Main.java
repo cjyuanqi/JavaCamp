@@ -1,7 +1,6 @@
 package com.es.camp.trap.lombok;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.tools.classfile.ConstantPool;
 
 /**
  * <h1>lombok 工具的使用以及需要避免的坑</h1>
