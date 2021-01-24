@@ -52,7 +52,10 @@ public class Main {
         return method;
     }
 
+
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
         reflectParentMethod();
     }
+
+
 }
