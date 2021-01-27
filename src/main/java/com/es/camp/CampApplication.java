@@ -4,9 +4,13 @@ import com.es.camp.web.application_context.ApplicationContextStore;
 import com.es.camp.web.application_context.UseInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
+@EnableScheduling
 @SpringBootApplication
+@ServletComponentScan("com.es.camp")
 @ComponentScan(value = {"com.es.camp","com.es.outer"})
 public class CampApplication {
 

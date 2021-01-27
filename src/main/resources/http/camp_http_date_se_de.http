@@ -1,0 +1,13 @@
+###
+http://localhost:8080/need/date/param?date="2020-11-22 00:00:00"
+Accept: application/json
+
+###
+http://localhost:8080/need/date/user
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "qinyi",
+  "birthday": "2020-11-22 00:00:00"
+}
